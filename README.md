@@ -8,7 +8,9 @@ Inspired by [https://github.com/site/sha](https://github.com/site/sha)
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-git_sha'
+```ruby
+gem 'rack-git_sha'
+```
 
 And then execute:
 
