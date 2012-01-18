@@ -8,9 +8,16 @@ describe Rack::GitSha do
   end
 
   describe "GET /" do
-    it "should respond with 200" do
-      get '/'
+    before do
+      get '/sha'
+    end
+
+    it "is successful" do
       last_response.status.should == 200
+    end
+
+    it "serves the current git commit sha" do
+      last_response.body.should == `git rev-parse HEAD`
     end
   end
 end
