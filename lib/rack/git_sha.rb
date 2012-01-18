@@ -9,9 +9,11 @@ module Rack
 
     def call(env)
       if revision_file.exist?
-        [200, headers, [revision_file.read]]
+        ok revision_file.read
+      elsif git_repository?
+        ok git_current_commit_sha
       else
-        [200, headers, [`git rev-parse HEAD`]]
+        not_found 'Could not determine SHA'
       end
     end
 
@@ -19,6 +21,22 @@ module Rack
 
     def revision_file
       @root.join('REVISION')
+    end
+
+    def git_repository?
+      @root.join('.git').directory?
+    end
+
+    def git_current_commit_sha
+      `git rev-parse HEAD`
+    end
+
+    def ok(response)
+      [200, headers, [response]]
+    end
+
+    def not_found(response)
+      [404, headers, [response]]
     end
 
     def headers

@@ -34,6 +34,20 @@ describe Rack::GitSha do
           last_response.body.should == "git-sha-goes-here\n"
         end
       end
+
+      context "with path that isn't git root or have REVISION file" do
+        def app
+          Rack::GitSha.new File.dirname(__FILE__)
+        end
+
+        before do
+          get '/'
+        end
+
+        it "returns a 404" do
+          last_response.status.should == 404
+        end
+      end
     end
   end
 end
