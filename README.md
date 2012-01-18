@@ -2,6 +2,8 @@
 
 Tiny rack application that serves up the currently deployed git commit SHA.
 
+Inspired by [https://github.com/site/sha](https://github.com/site/sha)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -51,7 +53,10 @@ git revision.
 Once you've got your application serving the current SHA you can do some
 fun stuff from the command line.
 
+### Currently deployed SHA
+
     cd example-app
+    curl -s http://app.example.com/sha
     git diff $(curl -fsSL http://app.example.com/sha)
 
 This will do a diff against the deployed sha, showing you what is still
