@@ -1,6 +1,6 @@
 # Rack::GitSha
 
-TODO: Write a gem description
+Tiny rack application that serves up the currently deployed git commit SHA.
 
 ## Installation
 
@@ -18,7 +18,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+If your using rails 3.0+ you can mount the app in your `routes.rb` file.
+
+```ruby
+MyApp::Application.routes.draw do
+  mount Rack::GitSha.new(Rails.root) => '/sha'
+end
+```
+
+After restarting your app, visiting `/sha` should give you the current
+git revision.
+
+If your using rack then you can map the middleware in your `config.ru`.
+
+```ruby
+map '/sha' do
+  run Rack::GitSha.new(File.dirname(__FILE__))
+end
+
+map '/' do
+  run Sinatra::Application # Or whatever.
+end
+```
 
 ## Contributing
 
