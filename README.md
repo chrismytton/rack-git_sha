@@ -29,14 +29,19 @@ end
 If your using rack then you can map the middleware in your `config.ru`.
 
 ```ruby
+require 'rack/git_sha'
+
 map '/sha' do
   run Rack::GitSha.new(File.dirname(__FILE__))
 end
 
 map '/' do
-  run Sinatra::Application # Or whatever.
+  run lambda { |env| [200, {'Content-Type' => 'text/plain'}, ['Homepage']] }
 end
 ```
+
+The argument that is given to `#new` is the path to the current project,
+it will default to `Dir.pwd` if none is given.
 
 After restarting your app, visiting `/sha` should give you the current
 git revision.
