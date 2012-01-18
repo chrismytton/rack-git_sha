@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "rack-git_sha"
   gem.require_paths = ["lib"]
   gem.version       = Rack::GitSha::VERSION
+
+  gem.add_development_dependency 'rspec', '~> 2.8.0'
+  gem.add_development_dependency 'rack-test'
 end
