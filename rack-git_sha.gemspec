@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Rack::GitSha::VERSION
 
   gem.add_development_dependency 'rspec', '~> 2.8.0'
-  gem.add_development_dependency 'rack-test'
+  gem.add_development_dependency 'rack-test', '~> 0.6.1'
 end
