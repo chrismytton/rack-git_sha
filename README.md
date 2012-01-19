@@ -64,6 +64,10 @@ fun stuff from the command line.
 This will do a diff against the deployed sha, showing you what is still
 pending (much like capistrano's `cap deploy:pending:diff`).
 
+## Known issues
+
+* Does not work with Heroku.
+
 ## Contributing
 
 1. Fork it
