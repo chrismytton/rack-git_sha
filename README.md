@@ -1,5 +1,7 @@
 # Rack::GitSha
 
+[![Build Status](https://secure.travis-ci.org/hecticjeff/rack-git_sha.png)](http://travis-ci.org/hecticjeff/rack-git_sha)
+
 Tiny rack application that serves up the currently deployed git commit SHA.
 
 Inspired by [https://github.com/site/sha](https://github.com/site/sha)
