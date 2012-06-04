@@ -5,13 +5,9 @@ describe Rack::GitSha do
 
   describe "GET /" do
     context "with no path" do
-      def app
-        Rack::GitSha.new
-      end
+      let(:app) { Rack::GitSha }
 
-      before do
-        get '/'
-      end
+      before { get '/' }
 
       it "is successful" do
         last_response.status.should == 200
@@ -22,13 +18,9 @@ describe Rack::GitSha do
       end
 
       context "with path" do
-        def app
-          Rack::GitSha.new File.expand_path('../fixtures', __FILE__)
-        end
+        let(:app) { Rack::GitSha.new File.expand_path('../fixtures', __FILE__) }
 
-        before do
-          get '/'
-        end
+        before { get '/' }
 
         it "uses the REVISION file" do
           last_response.body.should == "git-sha-goes-here\n"
@@ -36,13 +28,9 @@ describe Rack::GitSha do
       end
 
       context "with path that isn't git root or have REVISION file" do
-        def app
-          Rack::GitSha.new File.dirname(__FILE__)
-        end
+        let(:app) { Rack::GitSha.new File.dirname(__FILE__) }
 
-        before do
-          get '/'
-        end
+        before { get '/' }
 
         it "returns a 404" do
           last_response.status.should == 404
