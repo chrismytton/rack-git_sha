@@ -4,6 +4,10 @@ require 'pathname'
 module Rack
   class GitSha
 
+    def self.call(env)
+      new.call(env)
+    end
+
     # Public: Initialize a new GitSha app.
     #
     # root - The String path to application root.
