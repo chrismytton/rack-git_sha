@@ -26,7 +26,7 @@ If your using rails 3.0+ you can mount the app in your `routes.rb` file.
 
 ```ruby
 MyApp::Application.routes.draw do
-  mount Rack::GitSha.new => '/sha'
+  mount Rack::GitSha => '/sha'
 end
 ```
 
@@ -36,7 +36,7 @@ If your using rack then you can map the middleware in your `config.ru`.
 require 'rack/git_sha'
 
 map '/sha' do
-  run Rack::GitSha.new
+  run Rack::GitSha
 end
 
 map '/' do
