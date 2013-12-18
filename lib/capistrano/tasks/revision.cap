@@ -1,0 +1,13 @@
+namespace :git do
+  desc 'Creates a file named REVISION containing the deployed Git SHA'
+  task :revision do
+    on roles :app do
+      within release_path do
+        revision = capture("cd #{repo_path} && git rev-parse HEAD")
+        execute(:echo, "#{revision} > REVISION")
+      end
+    end
+  end
+end
+
+after 'deploy:updated', 'git:create_revision'
