@@ -10,4 +10,4 @@ namespace :git do
   end
 end
 
-after 'deploy:updated', 'git:create_revision'
+after 'deploy:updated', 'git:revision'
