@@ -68,6 +68,17 @@ pending (much like capistrano's `cap deploy:pending:diff`).
 
 * Does not work with Heroku.
 
+## Capistrano 3 support
+
+This gem provides a capistrano task to ensure your app has the required
+`REVISION` file for Rack::GitSha to work.
+
+To enable the capistrano task add the following line to your `Capfile`
+
+```
+require 'capistrano/revision'
+```
+
 ## More information
 
 ### Build status
