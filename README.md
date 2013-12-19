@@ -75,7 +75,7 @@ This gem provides a capistrano task to ensure your app has the required
 
 To enable the capistrano task add the following line to your `Capfile`
 
-```
+```ruby
 require 'capistrano/revision'
 ```
 
