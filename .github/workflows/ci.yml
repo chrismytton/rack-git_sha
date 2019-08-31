@@ -1,9 +1,10 @@
-name: Test
+name: CI
 
 on: [push]
 
 jobs:
   test:
+    name: Build and test RubyGem
 
     runs-on: ubuntu-latest
 
