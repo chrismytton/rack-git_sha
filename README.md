@@ -79,12 +79,6 @@ To enable the capistrano task add the following line to your `Capfile`
 require 'capistrano/revision'
 ```
 
-## More information
-
-### Build status
-
-[![Build Status](https://secure.travis-ci.org/hecticjeff/rack-git_sha.png)](http://travis-ci.org/hecticjeff/rack-git_sha)
-
 ## Contributing
 
 1. Fork it
