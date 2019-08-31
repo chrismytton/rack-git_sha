@@ -3,8 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  test:
-    name: Build and test RubyGem
+  build:
 
     runs-on: ubuntu-latest
     
@@ -17,7 +16,7 @@ jobs:
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Build and test with Rake
+    - name: Install and test with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
