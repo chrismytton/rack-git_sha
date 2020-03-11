@@ -3,10 +3,10 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         ruby: [2.4.x, 2.5.x, 2.6.x, 2.7.x]
@@ -16,8 +16,9 @@ jobs:
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Install and test with Rake
+    - name: Install dependencies
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec rake
+    - name: Run tests
+      run: bundle exec rake
