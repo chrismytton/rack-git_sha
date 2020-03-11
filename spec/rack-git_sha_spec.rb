@@ -10,11 +10,11 @@ describe Rack::GitSha do
       before { get '/' }
 
       it "is successful" do
-        last_response.status.should == 200
+        expect(last_response.status).to eq 200
       end
 
       it "serves the current git commit sha" do
-        last_response.body.should == `git rev-parse HEAD`
+        expect(last_response.body).to eq `git rev-parse HEAD`
       end
 
       context "with path" do
@@ -23,7 +23,7 @@ describe Rack::GitSha do
         before { get '/' }
 
         it "uses the REVISION file" do
-          last_response.body.should == "git-sha-goes-here\n"
+          expect(last_response.body).to eq "git-sha-goes-here\n"
         end
       end
 
@@ -33,7 +33,7 @@ describe Rack::GitSha do
         before { get '/' }
 
         it "returns a 404" do
-          last_response.status.should == 404
+          expect(last_response.status).to eq 404
         end
       end
     end
