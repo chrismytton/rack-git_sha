@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'rack/test'
+require 'rack/git_sha'
 
 describe Rack::GitSha do
   include Rack::Test::Methods
