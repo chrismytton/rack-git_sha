@@ -1,4 +1,4 @@
-# Rack::GitSha
+# Rack::GitSha ![CI](https://github.com/chrismytton/rack-git_sha/workflows/CI/badge.svg)
 
 Tiny rack application that serves up the currently deployed git commit SHA.
 
